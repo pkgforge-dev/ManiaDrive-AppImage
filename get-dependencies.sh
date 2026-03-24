@@ -8,6 +8,7 @@ echo "Installing package dependencies..."
 echo "---------------------------------------------------------------"
 pacman -Syu --noconfirm \
     freealut       \
+    glew           \
     glu            \
     libxml2-legacy \
     libcurl-gnutls \
