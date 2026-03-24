@@ -35,6 +35,9 @@ else
     mkdir mania_src
     tar -xvf maniadrive_1.3-+xenial.tar.gz --strip-components=1 -C mania_src
     cd mania_src
+    export LIBXML_CFLAGS="-I/usr/lib/libxml2-legacy/include/libxml2"
+    export LIBXML_LIBS="-L/usr/lib/libxml2-legacy/lib -lxml2"
+    export PKG_CONFIG_PATH="/usr/lib/libxml2-legacy/lib/pkgconfig"
     CFLAGS="-std=gnu89" ./configure --disable-x
-    make
+    make -j$(nproc)
 fi
