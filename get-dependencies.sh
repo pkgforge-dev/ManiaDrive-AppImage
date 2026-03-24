@@ -25,7 +25,6 @@ make-aur-package libpng12
 mkdir -p ./AppDir/bin
 if [ "$ARCH" = "x86_64" ]; then
     wget https://launchpad.net/~aapo-rantalainen/+archive/ubuntu/games/+files/maniadrive_1.3-+xenial_amd64.deb -O /tmp/app.deb
-
     ar xvf /tmp/app.deb
     tar -xvf ./data.tar.xz -C ./AppDir/bin --strip-components=3 ./opt/maniadrive/
     rm -f ./*.xz
