@@ -22,14 +22,20 @@ get-debloated-pkgs --add-common --prefer-nano
 make-aur-package libpng12
 
 # If the application needs to be manually built that has to be done down here
+mkdir -p ./AppDir/bin
 if [ "$ARCH" = "x86_64" ]; then
     wget https://launchpad.net/~aapo-rantalainen/+archive/ubuntu/games/+files/maniadrive_1.3-+xenial_amd64.deb -O /tmp/app.deb
 
-    mkdir -p ./AppDir/bin
     ar xvf /tmp/app.deb
     tar -xvf ./data.tar.xz -C ./AppDir/bin --strip-components=3 ./opt/maniadrive/
     rm -f ./*.xz
     mv -v ./AppDir/bin/libraydium.so.0 /usr/lib
     ln -sf /usr/lib/libGLEW.so /usr/lib/libGLEW.so.1.13
-
+else
+    wget https://launchpad.net/~aapo-rantalainen/+archive/ubuntu/games/+sourcefiles/maniadrive/1.3-+xenial/maniadrive_1.3-+xenial.tar.gz
+    mkdir mania_src
+    tar -xvf maniadrive_1.3-+xenial.tar.gz --strip-components=1 -C mania_src
+    cd mania_src
+    CFLAGS="-std=gnu89" ./configure --disable-x
+    make
 fi
