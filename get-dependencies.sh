@@ -26,6 +26,7 @@ if [ "$ARCH" = "x86_64" ]; then
     ar xvf /tmp/app.deb
     tar -xvf ./data.tar.xz -C ./AppDir/bin --strip-components=3 ./opt/maniadrive/
     rm -f ./*.xz
+    mv -v ./AppDir/bin/libraydium.so.0 /usr/lib
     ln -sf /usr/lib/libGLEW.so /usr/lib/libGLEW.so.1.13
 
 fi
