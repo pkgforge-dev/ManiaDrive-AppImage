@@ -24,7 +24,7 @@ if [ "$ARCH" = "x86_64" ]; then
 
     mkdir -p ./AppDir/bin
     ar xvf /tmp/app.deb
-    tar -xvf ./data.tar.xz -C ./AppDir/bin --strip-components=2 opt/maniadrive/
+    tar -xvf ./data.tar.xz -C ./AppDir/bin --strip-components=3 ./opt/maniadrive/
     rm -f ./*.xz
     ln -sf /usr/lib/libGLEW.so /usr/lib/libGLEW.so.1.13
 
