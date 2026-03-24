@@ -27,5 +27,5 @@ if [ "$ARCH" = "x86_64" ]; then
     tar -xvf ./data.tar.xz -C ./AppDir/bin --strip-components=2 opt/maniadrive/*
     rm -f ./*.xz
     ln -sf /usr/lib/libGLEW.so /usr/lib/libGLEW.so.1.13
-else
+
 fi
