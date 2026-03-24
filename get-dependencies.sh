@@ -39,6 +39,8 @@ else
     export LIBXML_LIBS="-L/usr/lib/libxml2-legacy/lib -lxml2"
     export PKG_CONFIG_PATH="/usr/lib/libxml2-legacy/lib/pkgconfig"
     CFLAGS="-fcommon -std=gnu89" ./configure --disable-x
+    patch 
+    patch 
     DISABLE_AUTORUN=1 ./odyncomp.sh mania_drive.c
     #make -j$(nproc)
 fi
