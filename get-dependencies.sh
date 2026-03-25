@@ -42,7 +42,8 @@ else
     patch -Np1 -i kids_mode.patch
     patch -Np1 -i editor_start.patch
     LDFLAGS="-L/usr/lib/libxml2-legacy/lib -lxml2 -fcommon" DISABLE_AUTORUN=1 ./odyncomp.sh mania_drive.c
-    mv test ./AppDir/bin/mania.bin
+    mv -v test ./AppDir/bin/mania.bin
     LDFLAGS="-L/usr/lib/libxml2-legacy/lib -lxml2 -fcommon" DISABLE_AUTORUN=1 ./odyncomp.sh mania2.c
-    mv test ./AppDir/bin/level_editor.bin
+    mv -v test ./AppDir/bin/level_editor.bin
+    mv -v *.php ./AppDir/bin
 fi
