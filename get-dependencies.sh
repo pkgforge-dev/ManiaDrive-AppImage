@@ -39,10 +39,10 @@ else
     export LIBXML_LIBS="-L/usr/lib/libxml2-legacy/lib -lxml2"
     export PKG_CONFIG_PATH="/usr/lib/libxml2-legacy/lib/pkgconfig"
     CFLAGS="-fcommon -std=gnu89" ./configure --disable-x
-    patch 
-    patch 
-    DISABLE_AUTORUN=1 ./odyncomp.sh mania_drive.c
+    patch kids_mode.patch
+    patch editor_start.patch
+    LDFLAGS="-L/usr/lib/libxml2-legacy/lib -lxml2 -fcommon" DISABLE_AUTORUN=1 ./odyncomp.sh mania_drive.c
     mv test ./AppDir/bin/mania.bin
-    DISABLE_AUTORUN=1 ./odyncomp.sh mania2.c
+    LDFLAGS="-L/usr/lib/libxml2-legacy/lib -lxml2 -fcommon" DISABLE_AUTORUN=1 ./odyncomp.sh mania2.c
     mv test ./AppDir/bin/level_editor.bin
 fi
