@@ -24,32 +24,28 @@ make-aur-package libpng12
 # If the application needs to be manually built that has to be done down here
 mkdir -p ./AppDir/bin
 #if [ "$ARCH" = "x86_64" ]; then
-#    wget https://launchpad.net/~aapo-rantalainen/+archive/ubuntu/games/+files/maniadrive_1.3-+xenial_amd64.deb -O /tmp/app.deb
-#    ar xvf /tmp/app.deb
-#    tar -xvf ./data.tar.xz -C ./AppDir/bin --strip-components=3 ./opt/maniadrive/
-#    rm -f ./*.xz
-#    mv -v ./AppDir/bin/libraydium.so.0 /usr/lib
-#    ln -sf /usr/lib/libGLEW.so /usr/lib/libGLEW.so.1.13
-#else
-    wget https://launchpad.net/~aapo-rantalainen/+archive/ubuntu/games/+sourcefiles/maniadrive/1.3-+xenial/maniadrive_1.3-+xenial.tar.gz
-    mkdir mania_src
-    tar -xvf maniadrive_1.3-+xenial.tar.gz
-    cd maniadrive-1.3
-    export LIBXML_CFLAGS="-I/usr/lib/libxml2-legacy/include/libxml2"
-    export LIBXML_LIBS="-L/usr/lib/libxml2-legacy/lib -lxml2"
-    export PKG_CONFIG_PATH="/usr/lib/libxml2-legacy/lib/pkgconfig"
+wget https://launchpad.net/~aapo-rantalainen/+archive/ubuntu/games/+sourcefiles/maniadrive/1.3-+xenial/maniadrive_1.3-+xenial.tar.gz
+mkdir mania_src
+tar -xvf maniadrive_1.3-+xenial.tar.gz
+cd maniadrive-1.3
+export LIBXML_CFLAGS="-I/usr/lib/libxml2-legacy/include/libxml2"
+export LIBXML_LIBS="-L/usr/lib/libxml2-legacy/lib -lxml2"
+export PKG_CONFIG_PATH="/usr/lib/libxml2-legacy/lib/pkgconfig"
+if [ "$ARCH" = "aarch64" ]; then
+    CFLAGS="-fcommon -std=gnu89" ./configure --disable-x--disable-x86-asm
+else
     CFLAGS="-fcommon -std=gnu89" ./configure --disable-x
-    patch -Ni kids_mode.patch
-    patch -Ni editor_start.patch
-    sed -i 's/^CFLAGS = -Wall -Wno-unused-result/& -fcommon/' Makefile
-    sed -i 's/^LDFLAGS=/& -L\/usr\/lib\/libxml2-legacy\/lib -lxml2/' Makefile
-    DISABLE_AUTORUN=1 ./odyncomp.sh mania_drive.c
-    mv -v test ../AppDir/bin/mania.bin
-    DISABLE_AUTORUN=1 ./odyncomp.sh mania2.c
-    mv -v test ../AppDir/bin/level_editor.bin
-    mv -v *.php mania_drive.story.beg mania_drive.story.pro ../AppDir/bin
-    mv -v libraydium.so.0.0 /usr/lib/libraydium.so.0
-    rm -f rayphp/README
-    rm -f rayphp/r3s/README
-    mv -v rayphp ../AppDir/bin
-#fi
+fi
+patch -Ni kids_mode.patch
+patch -Ni editor_start.patch
+sed -i 's/^CFLAGS = -Wall -Wno-unused-result/& -fcommon/' Makefile
+sed -i 's/^LDFLAGS=/& -L\/usr\/lib\/libxml2-legacy\/lib -lxml2/' Makefile
+DISABLE_AUTORUN=1 ./odyncomp.sh mania_drive.c
+mv -v test ../AppDir/bin/mania.bin
+DISABLE_AUTORUN=1 ./odyncomp.sh mania2.c
+mv -v test ../AppDir/bin/level_editor.bin
+mv -v *.php mania_drive.story.beg mania_drive.story.pro ../AppDir/bin
+mv -v libraydium.so.0.0 /usr/lib/libraydium.so.0
+rm -f rayphp/README
+rm -f rayphp/r3s/README
+mv -v rayphp ../AppDir/bin
