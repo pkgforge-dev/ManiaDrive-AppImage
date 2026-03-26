@@ -48,7 +48,7 @@ mkdir -p ./AppDir/bin
     DISABLE_AUTORUN=1 ./odyncomp.sh mania2.c
     mv -v ./test ./AppDir/bin/level_editor.bin
     mv -v *.php mania_drive.story.beg mania_drive.story.pro ./AppDir/bin
-    mv -v libraydium.so.0.0 /usr/lib/libraydium.so.0
+    mv -v ./libraydium.so.0.0 /usr/lib/libraydium.so.0
     rm -f rayphp/README
     rm -f rayphp/r3s/README
     mv -v rayphp ./AppDir/bin
