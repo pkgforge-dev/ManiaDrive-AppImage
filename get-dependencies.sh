@@ -44,6 +44,7 @@ mkdir -p ./AppDir/bin
     sed -i 's/^CFLAGS = -Wall -Wno-unused-result/& -fcommon/' Makefile
     sed -i 's/^LDFLAGS=/& -L\/usr\/lib\/libxml2-legacy\/lib -lxml2/' Makefile
     DISABLE_AUTORUN=1 ./odyncomp.sh mania_drive.c
+    ls
     mv -v test ./AppDir/bin/mania.bin
     DISABLE_AUTORUN=1 ./odyncomp.sh mania2.c
     mv -v test ./AppDir/bin/level_editor.bin
