@@ -18,10 +18,8 @@ echo "Installing debloated packages..."
 echo "---------------------------------------------------------------"
 get-debloated-pkgs --add-common --prefer-nano
 
-# Comment this out if you need an AUR package
-#make-aur-package
-
-# If the application needs to be manually built that has to be done down here
+echo "Making nightly build of ManiaDrive..."
+echo "---------------------------------------------------------------"
 mkdir -p ./AppDir/bin
 wget https://launchpad.net/~aapo-rantalainen/+archive/ubuntu/games/+sourcefiles/maniadrive/1.3-+xenial/maniadrive_1.3-+xenial.tar.gz
 mkdir mania_src
