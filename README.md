@@ -7,7 +7,7 @@
 [![Latest Stable Release](https://img.shields.io/github/v/release/pkgforge-dev/ManiaDrive-AppImage)](https://github.com/pkgforge-dev/ManiaDrive-AppImage/releases/latest)
 
 <p align="center">
-  <img src="https://github.com/Link4Electronics/ManiaDrive-AppImage/blob/main/AppDir/maniadrive.png" width="128" />
+  <img src="https://github.com/pkgforge-dev/ManiaDrive-AppImage/blob/main/AppDir/maniadrive.png" width="128" />
 </p>
 
 
