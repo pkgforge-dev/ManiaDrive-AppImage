@@ -18,7 +18,7 @@ echo "Installing debloated packages..."
 echo "---------------------------------------------------------------"
 get-debloated-pkgs --add-common --prefer-nano
 
-echo "Making nightly build of ManiaDrive..."
+echo "Building ManiaDrive..."
 echo "---------------------------------------------------------------"
 mkdir -p ./AppDir/bin
 wget https://launchpad.net/~aapo-rantalainen/+archive/ubuntu/games/+sourcefiles/maniadrive/1.3-+xenial/maniadrive_1.3-+xenial.tar.gz
